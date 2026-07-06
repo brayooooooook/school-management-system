@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../layouts/AdminLayout";
 import AddLearnerForm from "../components/AddLearnerForm";
 import { getLearners } from "../services/learnersService";
-import { Learner } from "../types";
+import type { Learner } from "../types";
 
 function Learners() {
   const [learners, setLearners] = useState<Learner[]>([]);
@@ -70,10 +70,18 @@ function Learners() {
       >
         <thead>
           <tr>
-            <th style={{ border: "1px solid #ddd", padding: "10px" }}>Admission No.</th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" }}>Full Name</th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" }}>Gender</th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" }}>Actions</th>
+            <th style={{ border: "1px solid #ddd", padding: "10px" }}>
+              Admission No.
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "10px" }}>
+              Full Name
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "10px" }}>
+              Gender
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "10px" }}>
+              Actions
+            </th>
           </tr>
         </thead>
 
@@ -93,10 +101,18 @@ function Learners() {
           ) : (
             learners.map((learner) => (
               <tr key={learner.id}>
-                <td>{learner.admission_no}</td>
-                <td>{learner.full_name}</td>
-                <td>{learner.gender}</td>
-                <td>Edit | Delete</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  {learner.admission_no}
+                </td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  {learner.full_name}
+                </td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  {learner.gender}
+                </td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                  Edit | Delete
+                </td>
               </tr>
             ))
           )}
